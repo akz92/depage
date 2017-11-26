@@ -1,14 +1,43 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Depage
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <form [formGroup]="form" (ngSubmit)="generateSecret()">
+    <ion-item>
+      <ion-label floating>Service</ion-label>
+      <ion-input formControlName="service"></ion-input>
+    </ion-item>
+
+    <validation-message [control]="form.controls.service"></validation-message>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
+
+    <validation-message [control]="form.controls.username"></validation-message>
+
+    <ion-item>
+      <ion-label floating>Passphrase</ion-label>
+      <ion-input formControlName="passphrase"></ion-input>
+    </ion-item>
+
+    <validation-message [control]="form.controls.passphrase"></validation-message>
+
+    <ion-item>
+      <ion-label floating>Counter</ion-label>
+      <ion-input formControlName="counter"></ion-input>
+    </ion-item>
+
+    <validation-message [control]="form.controls.counter"></validation-message>
+
+    <button ion-button block type="submit">
+      Generate
+    </button>
+  </form>
 </ion-content>

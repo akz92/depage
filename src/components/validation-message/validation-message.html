@@ -1,0 +1,6 @@
+<ng-container *ngIf="control && control.errors && (control.dirty || control.touched)">
+  <p [hidden]="!control.errors.required" class="app-validation-msg">
+    This field is required
+  </p>
+</ng-container>
+
