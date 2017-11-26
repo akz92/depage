@@ -1,16 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+// Plugins
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { Clipboard } from "@ionic-native/clipboard";
+
+// Providers
+import { SecretGeneratorProvider } from '../providers/secret-generator/secret-generator';
+
+// Components
+import { ValidationMessageComponent } from "../components/validation-message/validation-message";
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ValidationMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +34,9 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Clipboard,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SecretGeneratorProvider
   ]
 })
 export class AppModule {}
