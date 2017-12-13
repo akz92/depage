@@ -10,7 +10,7 @@
   <form [formGroup]="form" (ngSubmit)="generateSecret()">
     <ion-item>
       <ion-label floating>Service</ion-label>
-      <ion-input formControlName="service"></ion-input>
+      <ion-input type="url" formControlName="service"></ion-input>
     </ion-item>
 
     <validation-message [control]="form.controls.service"></validation-message>
@@ -20,7 +20,7 @@
       <ion-input formControlName="username"></ion-input>
     </ion-item>
 
-    <validation-message [control]="form.controls.username"></validation-message>
+    <validation-message type="email" [control]="form.controls.username"></validation-message>
 
     <ion-item>
       <ion-label floating>Passphrase</ion-label>
@@ -31,7 +31,7 @@
 
     <ion-item>
       <ion-label floating>Counter</ion-label>
-      <ion-input formControlName="counter"></ion-input>
+      <ion-input type="number" formControlName="counter"></ion-input>
     </ion-item>
 
     <validation-message [control]="form.controls.counter"></validation-message>
