@@ -31,6 +31,7 @@ export class HomePage {
   public generateSecret(): void {
     if (!this._validForm()) { return; }
 
+
     let secret = this.secretGenerator.generate(this.form.value);
     let alert = this.alertCtrl.create({
       title: "Secret",
@@ -56,6 +57,7 @@ export class HomePage {
       ]
     });
 
+    this.form.reset();
     alert.present();
   }
 
